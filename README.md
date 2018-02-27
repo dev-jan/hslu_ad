@@ -10,6 +10,7 @@ Code, experimences and other stuff releated to the AD (Algorithmen und Datenstru
 * Hamcrest - http://hamcrest.org/JavaHamcrest/
 * EqualsVerifier - http://jqno.nl/equalsverifier/
 * MutabilityDetector - http://mutabilitydetector.org/
+* AssertJ - http://joel-costigliola.github.io/assertj/
 
 ## Used Analyser
 * Checkstyle - http://checkstyle.sourceforge.net/
