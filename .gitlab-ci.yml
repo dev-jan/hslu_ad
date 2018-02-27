@@ -1,0 +1,13 @@
+image: maven:3-jdk-8
+
+stages:
+  - build
+  - test
+
+mavenbuild:
+  stage: build
+  script: "mvn clean install -B"
+
+junit:
+  stage: test
+  script: "mvn test"
