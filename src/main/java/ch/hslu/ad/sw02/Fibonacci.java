@@ -7,33 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Fibonacci {
-    private static final Logger LOG = LogManager.getLogger(Task.class);
     private static Map<Integer, Integer> cache = new HashMap<>();
-
-    /**
-     * Performance measurement of the different implementations
-     * @param args
-     */
-    public static void main(String[] args) {
-        int n = 45;
-        LOG.info("Performance test of fibonacci index " + n);
-
-        long starttime2 = System.currentTimeMillis();
-        System.out.println(fiboRec2(n));
-        long endtime2 = System.currentTimeMillis();
-        LOG.warn("Duration fiboRec2: " + (endtime2 - starttime2) / 1000f  + " sec");
-
-        long starttime = System.currentTimeMillis();
-        System.out.println(fiboRec1(n));
-        long endtime = System.currentTimeMillis();
-        LOG.warn("Duration fiboRec1: " + (endtime - starttime) / 1000f  + " sec");
-
-        long starttime3 = System.currentTimeMillis();
-        System.out.println(fiboIter(n));
-        long endtime3 = System.currentTimeMillis();
-        LOG.warn("Duration fiboIter: " + (endtime3 - starttime3) / 1000f  + " sec");
-
-    }
 
     /**
      * Return the n-th fibonacci number
@@ -79,6 +53,11 @@ public class Fibonacci {
             nMinusOne = tmp;
         }
         return nMinusOne + nMinusTwo;
+    }
+
+    public static int fiboApproximation(final int n) {
+        double result = (1f / Math.sqrt(5)) * Math.pow((0.5*(1+Math.sqrt(5))), n);
+        return (int)Math.round(result);
     }
 
 }
