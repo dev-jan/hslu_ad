@@ -39,12 +39,12 @@ public class SingleLinkedList<E> implements List<E> {
     }
 
     @Override
-    public void add(int index, E element) {
+    public void add(final int index, final E element) {
         throw new NotImplementedException();
     }
 
     @Override
-    public boolean addAll(Collection<? extends E> c) {
+    public boolean addAll(final Collection<? extends E> c) {
         for (E element : c) {
             add(element);
         }
@@ -52,23 +52,22 @@ public class SingleLinkedList<E> implements List<E> {
     }
 
     @Override
-    public boolean addAll(int index, Collection<? extends E> c) {
+    public boolean addAll(final int index, final Collection<? extends E> c) {
         // adding at a special index is not jet possible -> just add at the end
         return addAll(c);
     }
 
     @Override
-    public E set(int index, E element) {
+    public E set(final int index, final E element) {
         throw new NotImplementedException();
     }
 
     @Override
-    public boolean remove(Object o) {
+    public boolean remove(final Object o) {
         Node<E> preNode = null;
         Node<E> node = firstNode;
         while (node != null) {
-            if ((node.getData() != null && node.getData().equals(o)) ||
-                    (node.getData() == null && o == null)) {
+            if (dataIsEqualWithObject(node, o)) {
                 if (preNode != null) {
                     preNode.setNextNode(node.getNextNode());
                 }
@@ -84,12 +83,12 @@ public class SingleLinkedList<E> implements List<E> {
     }
 
     @Override
-    public E remove(int index) {
+    public E remove(final int index) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public boolean removeAll(Collection<?> c) {
+    public boolean removeAll(final Collection<?> c) {
         for (Object e : c) {
             remove(e);
         }
@@ -97,7 +96,7 @@ public class SingleLinkedList<E> implements List<E> {
     }
 
     @Override
-    public boolean retainAll(Collection<?> c) {
+    public boolean retainAll(final Collection<?> c) {
         throw new NotImplementedException();
     }
 
@@ -119,9 +118,9 @@ public class SingleLinkedList<E> implements List<E> {
     }
 
     @Override
-    public E get(int index) throws IndexOutOfBoundsException {
+    public E get(final int index) throws IndexOutOfBoundsException {
         Node<E> currentNode = firstNode;
-        for(int i = 0; i < index;i++) {
+        for (int i = 0; i < index;i++) {
             if (currentNode != null) {
                 currentNode = currentNode.getNextNode();
             }
@@ -154,11 +153,10 @@ public class SingleLinkedList<E> implements List<E> {
     }
 
     @Override
-    public boolean contains(Object o) {
+    public boolean contains(final Object o) {
         Node<E> currentNode = firstNode;
         while (currentNode != null) {
-            if ((currentNode.getData() != null && currentNode.getData().equals(o)) ||
-                    (currentNode.getData() == null && o == null)) {
+            if (dataIsEqualWithObject(currentNode, o)) {
                 return true;
             }
             currentNode = currentNode.getNextNode();
@@ -168,7 +166,7 @@ public class SingleLinkedList<E> implements List<E> {
     }
 
     @Override
-    public boolean containsAll(Collection<?> c) {
+    public boolean containsAll(final Collection<?> c) {
         for (Object element : c) {
             if (!contains(element)) {
                 return false;
@@ -206,12 +204,11 @@ public class SingleLinkedList<E> implements List<E> {
     }
 
     @Override
-    public int indexOf(Object o) {
+    public int indexOf(final Object o) {
         Node<E> currentNode = firstNode;
         int i = 0;
         while (currentNode != null) {
-            if ((currentNode.getData() != null && currentNode.getData().equals(o)) ||
-                    (currentNode.getData() == null && o == null)) {
+            if (dataIsEqualWithObject(currentNode, o)) {
                 return i;
             }
             currentNode = currentNode.getNextNode();
@@ -221,7 +218,7 @@ public class SingleLinkedList<E> implements List<E> {
     }
 
     @Override
-    public int lastIndexOf(Object o) {
+    public int lastIndexOf(final Object o) {
         throw new UnsupportedOperationException();
     }
 
@@ -236,8 +233,16 @@ public class SingleLinkedList<E> implements List<E> {
     }
 
     @Override
-    public List<E> subList(int fromIndex, int toIndex) {
+    public List<E> subList(final int fromIndex, final int toIndex) {
         throw new UnsupportedOperationException();
+    }
+
+    private boolean dataIsEqualWithObject(final Node currentNode, final Object o) {
+        if (currentNode.getData() != null && currentNode.getData().equals(o) ||
+                currentNode.getData() == null && o == null) {
+            return true;
+        }
+        return false;
     }
 
 }

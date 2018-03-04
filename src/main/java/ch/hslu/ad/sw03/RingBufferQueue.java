@@ -5,6 +5,13 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 import java.nio.BufferOverflowException;
 import java.util.NoSuchElementException;
 
+/**
+ * This implementation of the @{@link Queue} interface works internally with a array that will be used as a ring
+ * buffer.
+ *
+ * @author Jan Bucher
+ * @param <E> Type of the payload
+ */
 public class RingBufferQueue<E> implements Queue<E> {
     private static final int DEFAULT_SIZE = 10;
     private Object[] array;
@@ -12,16 +19,23 @@ public class RingBufferQueue<E> implements Queue<E> {
     private int tailPointer = -1;
     private int numberOfElements = 0;
 
+    /**
+     * Instantiate a new queue with the default size of 10
+     */
     public RingBufferQueue() {
         array = new Object[DEFAULT_SIZE];
     }
 
+    /**
+     * Instantiate a new queue with a given size
+     * @param size the size of the new queue
+     */
     public RingBufferQueue(int size) {
         array = new Object[size];
     }
 
     @Override
-    public void add(E element) {
+    public void add(final E element) {
         if (headPointer + 1 > array.length - 1) {
             // rotate to the other end of the array
             if (tailPointer == 0) {
@@ -45,7 +59,7 @@ public class RingBufferQueue<E> implements Queue<E> {
 
     @Override
     public E poll() {
-        if (isEmpty()){
+        if (isEmpty()) {
             throw new NoSuchElementException();
         }
         if (tailPointer >= array.length) {

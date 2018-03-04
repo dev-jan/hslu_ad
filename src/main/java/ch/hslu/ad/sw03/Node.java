@@ -9,7 +9,7 @@ public class Node<E> {
     private Node nextNode;
 
     /**
-     * Create a new list node with the given data as payload
+     * Create a new list node with the given data as payload.
      * @param data object, that the list node holds
      */
     public Node(E data) {
@@ -17,7 +17,7 @@ public class Node<E> {
     }
 
     /**
-     * Return the payload data of the listnode
+     * Return the payload data of the list node.
      * @return the payload or <code>null</code> if no data object is set on the listitem
      */
     public E getData() {
@@ -25,7 +25,7 @@ public class Node<E> {
     }
 
     /**
-     * Return the next node in the list
+     * Return the next node in the list.
      * @return the next node or <code>null</code> if this node is the last node
      */
     public Node getNextNode() {
@@ -33,10 +33,10 @@ public class Node<E> {
     }
 
     /**
-     * Set the next node of the list
+     * Set the next node of the list.
      * @param nextNode next node or <code>null</code> if the current node is the last node
      */
-    public void setNextNode(Node nextNode) {
+    public void setNextNode(final Node nextNode) {
         this.nextNode = nextNode;
     }
 

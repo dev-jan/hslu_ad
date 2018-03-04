@@ -178,6 +178,7 @@ public class SingleLinkedListTest {
 
         // assert
         assertThat(list.size()).isEqualTo(1);
+        assertThat(list.isEmpty()).isFalse();
         assertThat(returnValue).isEqualTo(firstAllocation);
     }
 

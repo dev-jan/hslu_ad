@@ -7,30 +7,45 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 import java.io.Serializable;
 
 /**
- * Represents an allocation
+ * Represents an allocation.
  */
 public final class Allocation implements Serializable, Comparable<Allocation> {
     private final int startAddress;
     private final int size;
 
+    /**
+     * Create a new Allocation.
+     * @param startAddress the start address of the allocation
+     * @param size the size of the allocation
+     */
     public Allocation(final int startAddress, final int size) {
         this.startAddress = startAddress;
         this.size = size;
     }
 
+    /**
+     * Return the start address of the allocation.
+     */
     public int getStartAddress() {
         return startAddress;
     }
 
+    /**
+     * Return the size of the allocation
+     */
     public int getSize() {
         return size;
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
+    public boolean equals(final Object o) {
+        if (this == o) {
+            return true;
+        }
 
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
         Allocation that = (Allocation) o;
 
@@ -49,7 +64,7 @@ public final class Allocation implements Serializable, Comparable<Allocation> {
     }
 
     @Override
-    public int compareTo(Allocation o) {
+    public int compareTo(final Allocation o) {
         return Integer.compare(this.startAddress, o.startAddress);
     }
 

@@ -50,12 +50,12 @@ public class ArrayStack<E> implements Stack<E> {
 
     @Override
     public boolean isEmpty() {
-        return (lastElementIndex < 0) ? true : false;
+        return lastElementIndex < 0 ? true : false;
     }
 
     @Override
     public boolean isFull() {
-        return (lastElementIndex >= stack.length - 1) ? true : false;
+        return lastElementIndex >= stack.length - 1 ? true : false;
     }
 
 }

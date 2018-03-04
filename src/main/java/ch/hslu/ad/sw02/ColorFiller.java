@@ -3,10 +3,15 @@ package ch.hslu.ad.sw02;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+/**
+ * This class is implements the color filler exercise. The main goal is to have a field of various color pixel and
+ * a method to simulate a "filler" tool that colorizes all pixels that are the same color as the starting pixel and
+ * are connected to the "inital pixel".
+ */
 public class ColorFiller {
     private Color[][] field;
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         ColorFiller colorFiller = new ColorFiller(10,10);
         colorFiller.initDefaultField();
         drawExcercisePath(colorFiller);
@@ -18,48 +23,48 @@ public class ColorFiller {
 
     public static void drawExcercisePath(ColorFiller colorFiller) {
         Color c = new Color("X");
-        colorFiller.setColorOfFieldOneIndexed(2,2,c);
-        colorFiller.setColorOfFieldOneIndexed(2,3,c);
-        colorFiller.setColorOfFieldOneIndexed(2,4,c);
-        colorFiller.setColorOfFieldOneIndexed(3,2,c);
-        colorFiller.setColorOfFieldOneIndexed(3,3,c);
-        colorFiller.setColorOfFieldOneIndexed(3,4,c);
-        colorFiller.setColorOfFieldOneIndexed(3,5,c);
-        colorFiller.setColorOfFieldOneIndexed(3,6,c);
-        colorFiller.setColorOfFieldOneIndexed(3,9,c);
-        colorFiller.setColorOfFieldOneIndexed(3,10,c);
-        colorFiller.setColorOfFieldOneIndexed(4,2,c);
-        colorFiller.setColorOfFieldOneIndexed(4,3,c);
-        colorFiller.setColorOfFieldOneIndexed(4,4,c);
-        colorFiller.setColorOfFieldOneIndexed(4,5,c);
-        colorFiller.setColorOfFieldOneIndexed(4,6,c);
-        colorFiller.setColorOfFieldOneIndexed(4,7,c);
-        colorFiller.setColorOfFieldOneIndexed(4,8,c);
-        colorFiller.setColorOfFieldOneIndexed(4,9,c);
-        colorFiller.setColorOfFieldOneIndexed(4,10,c);
-        colorFiller.setColorOfFieldOneIndexed(5,2,c);
-        colorFiller.setColorOfFieldOneIndexed(5,5,c);
-        colorFiller.setColorOfFieldOneIndexed(5,6,c);
-        colorFiller.setColorOfFieldOneIndexed(5,7,c);
-        colorFiller.setColorOfFieldOneIndexed(5,8,c);
-        colorFiller.setColorOfFieldOneIndexed(5,9,c);
-        colorFiller.setColorOfFieldOneIndexed(5,10,c);
-        colorFiller.setColorOfFieldOneIndexed(6,2,c);
-        colorFiller.setColorOfFieldOneIndexed(6,5,c);
-        colorFiller.setColorOfFieldOneIndexed(7,2,c);
-        colorFiller.setColorOfFieldOneIndexed(7,5,c);
-        colorFiller.setColorOfFieldOneIndexed(7,6,c);
-        colorFiller.setColorOfFieldOneIndexed(7,7,c);
-        colorFiller.setColorOfFieldOneIndexed(7,8,c);
-        colorFiller.setColorOfFieldOneIndexed(8,2,c);
-        colorFiller.setColorOfFieldOneIndexed(8,8,c);
-        colorFiller.setColorOfFieldOneIndexed(9,2,c);
-        colorFiller.setColorOfFieldOneIndexed(9,3,c);
-        colorFiller.setColorOfFieldOneIndexed(9,4,c);
-        colorFiller.setColorOfFieldOneIndexed(9,5,c);
-        colorFiller.setColorOfFieldOneIndexed(9,6,c);
-        colorFiller.setColorOfFieldOneIndexed(9,7,c);
-        colorFiller.setColorOfFieldOneIndexed(9,8,c);
+        colorFiller.setColorOfFieldOneIndexed(2, 2, c);
+        colorFiller.setColorOfFieldOneIndexed(2, 3, c);
+        colorFiller.setColorOfFieldOneIndexed(2, 4, c);
+        colorFiller.setColorOfFieldOneIndexed(3, 2, c);
+        colorFiller.setColorOfFieldOneIndexed(3, 3, c);
+        colorFiller.setColorOfFieldOneIndexed(3, 4, c);
+        colorFiller.setColorOfFieldOneIndexed(3, 5, c);
+        colorFiller.setColorOfFieldOneIndexed(3, 6, c);
+        colorFiller.setColorOfFieldOneIndexed(3, 9, c);
+        colorFiller.setColorOfFieldOneIndexed(3, 10, c);
+        colorFiller.setColorOfFieldOneIndexed(4, 2, c);
+        colorFiller.setColorOfFieldOneIndexed(4, 3, c);
+        colorFiller.setColorOfFieldOneIndexed(4, 4, c);
+        colorFiller.setColorOfFieldOneIndexed(4, 5, c);
+        colorFiller.setColorOfFieldOneIndexed(4, 6, c);
+        colorFiller.setColorOfFieldOneIndexed(4, 7, c);
+        colorFiller.setColorOfFieldOneIndexed(4, 8, c);
+        colorFiller.setColorOfFieldOneIndexed(4, 9, c);
+        colorFiller.setColorOfFieldOneIndexed(4, 10, c);
+        colorFiller.setColorOfFieldOneIndexed(5, 2, c);
+        colorFiller.setColorOfFieldOneIndexed(5, 5, c);
+        colorFiller.setColorOfFieldOneIndexed(5, 6, c);
+        colorFiller.setColorOfFieldOneIndexed(5, 7, c);
+        colorFiller.setColorOfFieldOneIndexed(5, 8, c);
+        colorFiller.setColorOfFieldOneIndexed(5, 9, c);
+        colorFiller.setColorOfFieldOneIndexed(5, 10, c);
+        colorFiller.setColorOfFieldOneIndexed(6, 2, c);
+        colorFiller.setColorOfFieldOneIndexed(6, 5, c);
+        colorFiller.setColorOfFieldOneIndexed(7, 2, c);
+        colorFiller.setColorOfFieldOneIndexed(7, 5, c);
+        colorFiller.setColorOfFieldOneIndexed(7, 6, c);
+        colorFiller.setColorOfFieldOneIndexed(7, 7, c);
+        colorFiller.setColorOfFieldOneIndexed(7, 8, c);
+        colorFiller.setColorOfFieldOneIndexed(8, 2, c);
+        colorFiller.setColorOfFieldOneIndexed(8, 8, c);
+        colorFiller.setColorOfFieldOneIndexed(9, 2, c);
+        colorFiller.setColorOfFieldOneIndexed(9, 3, c);
+        colorFiller.setColorOfFieldOneIndexed(9, 4, c);
+        colorFiller.setColorOfFieldOneIndexed(9, 5, c);
+        colorFiller.setColorOfFieldOneIndexed(9, 6, c);
+        colorFiller.setColorOfFieldOneIndexed(9, 7, c);
+        colorFiller.setColorOfFieldOneIndexed(9, 8, c);
     }
 
     /**
@@ -102,7 +107,7 @@ public class ColorFiller {
                           final Color fillColor,
                           final Color outsideColor) {
         Color actualColor = this.getColorOfField(x, y);
-        if ((actualColor != null) && (!actualColor.equals(outsideColor)) && (!actualColor.equals(fillColor))) {
+        if (actualColor != null && !actualColor.equals(outsideColor) && !actualColor.equals(fillColor)) {
             setColorOfField(x, y, fillColor);
             colorArea(x + 1, y, fillColor, outsideColor);
             colorArea(x, y + 1, fillColor, outsideColor);
@@ -111,13 +116,13 @@ public class ColorFiller {
         }
     }
 
-    public void setColorOfField(int x, int y, Color newColor) {
+    public void setColorOfField(final int x, final int y, final Color newColor) {
         if (isPointInField(x, y)) {
             this.field[x][y] = newColor;
         }
     }
 
-    public void setColorOfFieldOneIndexed(int x, int y, Color newColor) {
+    public void setColorOfFieldOneIndexed(final int x, final int y, final Color newColor) {
         if (isPointInField(x - 1, y - 1)) {
             this.field[x - 1][y - 1] = newColor;
         }
@@ -136,24 +141,30 @@ public class ColorFiller {
         return sb.toString();
     }
 
+    /**
+     * Represents a simple colored pixel of the field.
+     */
     public static class Color {
         private String colorCode;
 
+        /**
+         * Create a new Color with the default code "O".
+         */
         public Color() {
             // default color code
             this.colorCode = "O";
         }
 
-        public Color(String colorCode) {
+        /**
+         * Create a new Color with a given code.
+         * @param colorCode code of the color
+         */
+        public Color(final String colorCode) {
             this.colorCode = colorCode;
         }
 
         public String getColorCode() {
             return colorCode;
-        }
-
-        public void setColorCode(String colorCode) {
-            this.colorCode = colorCode;
         }
 
         @Override
@@ -162,7 +173,7 @@ public class ColorFiller {
         }
 
         @Override
-        public boolean equals(Object o) {
+        public boolean equals(final Object o) {
             if (this == o) return true;
 
             if (o == null || getClass() != o.getClass()) return false;

@@ -35,4 +35,17 @@ public class AllocationTest {
         assertImmutable(Allocation.class);
     }
 
+    @Test
+    public void test_compareTo() {
+        // arrange
+        Allocation a1 = new Allocation(1, 2);
+        Allocation a2 = new Allocation(1, 4);
+
+        // act
+        int compare = a1.compareTo(a2);
+
+        // assert
+        assertThat(compare).isEqualTo(0);
+    }
+
 }

@@ -12,7 +12,7 @@ public interface Queue<E> {
      * @param element element to add
      * @throws java.nio.BufferOverflowException if the queue is not big enough
      */
-    void add(E element);
+    void add(final E element);
 
     /**
      * Return the first element of the queue and remove it from the queue.

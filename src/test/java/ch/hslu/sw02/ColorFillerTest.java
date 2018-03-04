@@ -5,7 +5,9 @@ import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.*;
 
-
+/**
+ * Unittests for @{@link ColorFiller}
+ */
 public class ColorFillerTest {
     @Test
     public void test_Color_notequals() {
@@ -25,5 +27,23 @@ public class ColorFillerTest {
 
         // act & assert
         assertThat(color1).isEqualTo(color2);
+    }
+
+    @Test
+    public void test_Color_toString() {
+        // arrange
+        ColorFiller.Color color = new ColorFiller.Color("X");
+
+        // act
+        String result = color.toString();
+
+        // assert
+        assertThat(result).isEqualTo("X").isEqualTo(color.getColorCode());
+    }
+
+    @Test
+    public void test_main() {
+        // just test that the method can be run without exception, output will be not checked...
+        ColorFiller.main(new String[]{});
     }
 }

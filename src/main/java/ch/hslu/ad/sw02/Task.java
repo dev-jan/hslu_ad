@@ -4,14 +4,20 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Task class for excercise 2
+ * Task class for excercise 2.
  */
 public class Task {
     private static final Logger LOG = LogManager.getLogger(Task.class);
-
     private static int runs = 0;
 
-    public static void main(String[] args) throws InterruptedException {
+    /**
+     * Private constructor to prevent instantiation of the class
+     */
+    private Task() {
+        // class cannot be instantiated.
+    }
+
+    public static void main(final String[] args) throws InterruptedException {
         long starttime = System.currentTimeMillis();
         task(10);
         long endtime = System.currentTimeMillis();
@@ -46,4 +52,9 @@ public class Task {
         runs++;
         Thread.sleep(5);
     }
+
+    public static int getNumberOfRuns() {
+        return runs;
+    }
+
 }

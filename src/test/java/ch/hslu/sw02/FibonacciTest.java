@@ -8,6 +8,9 @@ import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.*;
 
+/**
+ * Unittests for @{@link Fibonacci}
+ */
 public class FibonacciTest {
     private static final Logger LOG = LogManager.getLogger(Task.class);
 
