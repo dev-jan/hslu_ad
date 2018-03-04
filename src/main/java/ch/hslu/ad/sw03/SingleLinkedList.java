@@ -179,9 +179,7 @@ public class SingleLinkedList<E> implements List<E> {
 
     @Override
     public Iterator<E> iterator() {
-        SingleLinkedListIterator<E> iterator = new SingleLinkedListIterator<>();
-        iterator.setNextNode(this.firstNode);
-        return iterator;
+        return new SingleLinkedListIterator<>(this.firstNode);
     }
 
     @Override

@@ -6,6 +6,10 @@ import java.util.NoSuchElementException;
 public class SingleLinkedListIterator<E> implements Iterator<E> {
     private Node<E> nextNode = null;
 
+    public SingleLinkedListIterator(Node firstNode) {
+        this.setNextNode(firstNode);
+    }
+
     @Override
     public boolean hasNext() {
         if (nextNode != null) {
@@ -26,7 +30,7 @@ public class SingleLinkedListIterator<E> implements Iterator<E> {
         }
     }
 
-    public void setNextNode(Node nextNode) {
+    private void setNextNode(Node nextNode) {
         this.nextNode = nextNode;
     }
 }
