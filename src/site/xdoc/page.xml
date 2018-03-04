@@ -3,34 +3,16 @@
           xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
 
     <properties>
-        <title>OOP Maven Template</title>
-        <author email="roland.gisler@hslu.ch">Roland Gisler</author>
+        <title>HSLU AD exercises by Jan Bucher</title>
+        <author email="jan.bucher@stud.hslu.ch">Jan Bucher</author>
     </properties>
 
     <body>
-        <section name="OOP Maven Template">
-            <subsection name="Inhalt">
+        <section name="AD exercises">
+            <subsection name="Solution for HSLU AD exercises">
                 <p>
-                    <macro name="toc">
-                        <param name="section" value="0" />
-                        <param name="fromDepth" value="2" />
-                        <param name="toDepth" value="2" />
-                    </macro>
-                </p>
-            </subsection>
-
-            <subsection name="Template für einfache Java-Projekte">
-                <p>
-                    Dieses Projekt definiert ein einfaches, leeres Java-Projekt mit einem Maven-Build.
-                    Es kann für beliebige Projekte genutzt werden und dient als ein Template.
-                </p>
-                <p>
-                    Details siehe in der Readme-Datei:
-                </p>
-                <p>
-                    <macro name="snippet">
-                        <param name="file" value="readme.md" />
-                    </macro>
+                    This project contains (most) of the solutions to the AD exercises. The correctness of the
+                    solutions are not guaranteed...
                 </p>
             </subsection>
         </section>
