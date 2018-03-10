@@ -36,18 +36,12 @@ public class RingBufferQueue<E> implements Queue<E> {
 
     @Override
     public void add(final E element) {
+        if (isFull()) {
+            throw new BufferOverflowException();
+        }
         if (headPointer + 1 > array.length - 1) {
             // rotate to the other end of the array
-            if (tailPointer == 0) {
-                // rotation is not possible, otherwise the head overruns the tail
-                throw new BufferOverflowException();
-            }
             headPointer = -1;
-        }
-        else {
-            if (headPointer + 1 == tailPointer) {
-                throw new BufferOverflowException();
-            }
         }
 
         array[++headPointer] = element;
@@ -65,23 +59,19 @@ public class RingBufferQueue<E> implements Queue<E> {
         if (tailPointer >= array.length) {
             tailPointer = 0;
         }
-        boolean isLastElement = false;
-        if (tailPointer == headPointer) {
-            isLastElement = true;
-        }
         E returnElement = (E) array[tailPointer++];
         array[tailPointer - 1] = null;
         numberOfElements--;
-        if (isLastElement) {
-            tailPointer = -1;
-            headPointer = -1;
-        }
         return returnElement;
     }
 
     @Override
     public boolean isEmpty() {
-        return numberOfElements < 1 ? true : false;
+        return numberOfElements < 1;
+    }
+
+    private boolean isFull() {
+        return numberOfElements >= array.length;
     }
 
     @Override
