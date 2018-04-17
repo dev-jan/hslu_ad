@@ -136,6 +136,12 @@
                 <version>0.9.6</version>
                 <scope>test</scope>
             </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>24.1-jre</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -168,6 +174,10 @@
         <dependency>
             <groupId>org.mutabilitydetector</groupId>
             <artifactId>MutabilityDetector</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
         </dependency>
     </dependencies>
 
