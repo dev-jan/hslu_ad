@@ -22,4 +22,16 @@ public abstract class IntArraySort {
         return Arrays.copyOf(source, source.length);
     }
 
+    /**
+     * Swap 2 elements in a given array
+     * @param array the array with the elements
+     * @param position1 position (index) of the first element
+     * @param position2 position (index) of the second element
+     */
+    public static void swap(int[] array, int position1, int position2) {
+        int tmp = array[position1];
+        array[position1] = array[position2];
+        array[position2] = tmp;
+    }
+
 }

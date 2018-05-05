@@ -3,6 +3,10 @@ package ch.hslu.sw09;
 import ch.hslu.ad.sw09.IntArraySort;
 import junit.framework.AssertionFailedError;
 import org.apache.commons.lang.ArrayUtils;
+import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertArrayEquals;
 
 /**
  * Test class for the @{@link ch.hslu.ad.sw09.IntArraySort} class and it's subclasses. The demo arrays for testing
@@ -57,6 +61,32 @@ public class IntArraySortTest {
                         " [position="+i+",value="+array[i]+"] is greater than [position="+(i+1)+",value="+array[i+1]+"]");
             }
         }
+    }
+
+    @Test
+    public void test_cloneArray() {
+        // arrange
+        int[] source = {1,2,3};
+
+        // act
+        int[] clone = IntArraySort.cloneArray(source);
+
+        // assert
+        clone[0] = 5;
+        assertThat(source[0]).isEqualTo(1);
+        assertThat(clone[1]).isEqualTo(2);
+    }
+
+    @Test
+    public void test_swap() {
+        // arrange
+        int[] array = {1,2,3};
+
+        // act
+        IntArraySort.swap(array, 0, 1);
+
+        // assert
+        assertArrayEquals(array, new int[]{2,1,3});
     }
 
 }
