@@ -8,5 +8,6 @@
  *
  * Sort algorithms from week 10:
  *  - QuickSort: 4.250 ms
+ *  - HeapSort: 4.945 ms
  */
 package ch.hslu.ad.sw10;
