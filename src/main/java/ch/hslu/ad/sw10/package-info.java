@@ -1,5 +1,5 @@
 /**
- * This package contains classes for solving the exercises of week 10.
+ * This package contains classes for solving the exercises of week 10 (extended sort algorithms).
  *
  * Comparision of the sort algorithms on a random array (1000 integers - test_sort_randomArray_large()):
  *  - BubbleSort: 9.396 ms
