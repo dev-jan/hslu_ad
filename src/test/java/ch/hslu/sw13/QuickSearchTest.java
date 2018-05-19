@@ -23,7 +23,7 @@ public class QuickSearchTest {
         int index = QuickSearch.quickSearch(text, searchFor);
 
         // assert
-        assertThat(index).isEqualTo(103589);
+        assertThat(index).isEqualTo(103546);
     }
 
     @Test
@@ -36,7 +36,7 @@ public class QuickSearchTest {
         int index = QuickSearch.quickSearchOptimalDismatch(text, searchFor);
 
         // assert
-        assertThat(index).isEqualTo(103589);
+        assertThat(index).isEqualTo(103546);
     }
 
 }
